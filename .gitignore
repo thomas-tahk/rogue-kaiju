@@ -1,0 +1,6 @@
+# Godot generated
+.godot/
+*.tmp
+
+# Export artifacts
+export/

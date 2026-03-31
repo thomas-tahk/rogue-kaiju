@@ -1,0 +1,34 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; but the file format allows manual edits.
+
+config_version=5
+
+[application]
+
+config/name="Rogue Kaiju"
+config/run/main_scene="res://scenes/main/Main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+InputMapper="*res://scripts/autoloads/InputMapper.gd"
+GameManager="*res://scripts/autoloads/GameManager.gd"
+RunManager="*res://scripts/autoloads/RunManager.gd"
+MetaProgression="*res://scripts/autoloads/MetaProgression.gd"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0

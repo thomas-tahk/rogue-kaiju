@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
+  <rect width="128" height="128" fill="#0d0d1a"/>
+  <rect x="44" y="20" width="40" height="50" fill="#2a6e2a"/>
+  <rect x="36" y="30" width="10" height="30" fill="#2a6e2a"/>
+  <rect x="82" y="30" width="10" height="30" fill="#2a6e2a"/>
+  <rect x="50" y="35" width="12" height="12" fill="#ffdd44"/>
+  <rect x="66" y="35" width="12" height="12" fill="#ffdd44"/>
+  <rect x="54" y="60" width="20" height="8" fill="#1a4a1a"/>
+  <text x="64" y="110" font-size="14" text-anchor="middle" fill="#44cc44" font-family="monospace">ROGUE KAIJU</text>
+</svg>
