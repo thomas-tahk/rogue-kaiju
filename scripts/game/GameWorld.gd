@@ -34,10 +34,41 @@ var _enemy_spawn_timer: float = ENEMY_SPAWN_INTERVAL
 
 
 func _ready() -> void:
+	_spawn_backdrop()
 	_spawn_city()
 	_spawn_player()
 	_update_hud_city()
 	RunManager.score_changed.connect(_on_score_changed)
+
+
+# --- Backdrop ---
+# Dusk sky gradient plus a tiled distant-city silhouette, both on negative
+# CanvasLayers so they sit behind the gameplay and don't scroll with it.
+# (Skyline vertical offset can be nudged in-editor to taste.)
+func _spawn_backdrop() -> void:
+	var sky_layer := CanvasLayer.new()
+	sky_layer.layer = -10
+	var sky := TextureRect.new()
+	sky.texture = preload("res://assets/env/sky.png")
+	sky.stretch_mode = TextureRect.STRETCH_SCALE
+	sky.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	sky_layer.add_child(sky)
+	add_child(sky_layer)
+
+	var skyline_layer := CanvasLayer.new()
+	skyline_layer.layer = -9
+	var skyline := TextureRect.new()
+	skyline.texture = preload("res://assets/env/skyline.png")
+	skyline.stretch_mode = TextureRect.STRETCH_TILE
+	skyline.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	skyline.anchor_left = 0.0
+	skyline.anchor_right = 1.0
+	skyline.anchor_top = 1.0
+	skyline.anchor_bottom = 1.0
+	skyline.offset_top = -136.0   # 96px-tall silhouette, lifted off the bottom
+	skyline.offset_bottom = -40.0
+	skyline_layer.add_child(skyline)
+	add_child(skyline_layer)
 
 
 func _process(delta: float) -> void:
@@ -80,10 +111,12 @@ func _spawn_ground(width: float) -> void:
 	col.position = Vector2(width * 0.5, GROUND_Y + 12.0)
 	ground.add_child(col)
 
-	var visual       := ColorRect.new()
-	visual.size      = Vector2(width + 400.0, 24.0)
-	visual.position  = Vector2(-200.0, GROUND_Y)
-	visual.color     = Color(0.20, 0.18, 0.14)
+	var visual := TextureRect.new()
+	visual.texture       = preload("res://assets/env/ground.png")
+	visual.stretch_mode  = TextureRect.STRETCH_TILE
+	visual.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	visual.size          = Vector2(width + 400.0, 28.0)
+	visual.position      = Vector2(-200.0, GROUND_Y)
 	add_child(visual)
 
 	add_child(ground)

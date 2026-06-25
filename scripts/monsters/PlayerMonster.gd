@@ -16,6 +16,7 @@ func _handle_input() -> void:
 	# Horizontal movement
 	var h := Input.get_axis(_a("move_left", s), _a("move_right", s))
 	move_horizontal(h)
+	$Body.flip_h = facing_dir < 0   # sprite faces right by default
 
 	if is_climbing:
 		# Vertical climbing

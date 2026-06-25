@@ -15,7 +15,7 @@ var _damage_state: DamageState = DamageState.HEALTHY
 
 signal building_destroyed(building: Building)
 
-@onready var _sprite:    ColorRect         = $Sprite
+@onready var _sprite:    TextureRect        = $Sprite
 @onready var _collision: CollisionShape2D  = $CollisionShape2D
 
 
@@ -58,12 +58,14 @@ func _refresh_damage_state() -> void:
 		_update_tint()
 
 
+# The facade texture is full-colour; damage is shown by multiplying it with a
+# progressively warmer/darker tint via modulate (white = untouched).
 func _update_tint() -> void:
 	match _damage_state:
-		DamageState.HEALTHY:   _sprite.color = Color(0.40, 0.45, 0.52)
-		DamageState.DAMAGED:   _sprite.color = Color(0.55, 0.42, 0.28)
-		DamageState.CRITICAL:  _sprite.color = Color(0.60, 0.30, 0.20)
-		DamageState.DESTROYED: _sprite.color = Color(0.25, 0.22, 0.18)
+		DamageState.HEALTHY:   _sprite.modulate = Color(1.00, 1.00, 1.00)
+		DamageState.DAMAGED:   _sprite.modulate = Color(1.00, 0.82, 0.62)
+		DamageState.CRITICAL:  _sprite.modulate = Color(1.00, 0.55, 0.42)
+		DamageState.DESTROYED: _sprite.modulate = Color(0.42, 0.34, 0.30)
 
 
 func _collapse() -> void:
