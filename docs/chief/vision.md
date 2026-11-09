@@ -3,11 +3,17 @@
 ## Intent
 Play a giant monster smashing a city, with roguelike runs. Defense force built to fight kaiju is the opposition. Original world.
 
-## Goals
-- TBD in Shape round 1
+## Goals (round 1, 2026-11-08)
+- Solo. Couch co-op = stretch goal, later.
+- Roguelite structure borrowed from Slay-the-Spire-style acts + branching route map; "one more run" pull is the point. Numbers found by play-testing, not decided up front.
+- Core node = destroy a city (Rampage-faithful). Other node types possible: kaiju-vs-kaiju fights, events, etc.
+- Twist (tentative, expect several passes): mutations as the run choice + escalating defense force as pressure.
+- Light meta: unlock monsters + starting mutations; no permanent stat grind.
+- PC first. Mobile/console ports decided later.
 
 ## Non-goals
-- TBD
+- Co-op in the first version.
+- Mobile/console in the first version.
 
 ## Anti-goals
 - A Rampage clone: no copied names, characters, rule set (see CLAUDE.md originality rule).
@@ -15,9 +21,13 @@ Play a giant monster smashing a city, with roguelike runs. Defense force built t
 ## Done-gate (proposed, unconfirmed)
 On my Windows PC I play one full run, from picking a monster to dying or beating the last city, choose upgrades between cities, and want to start another.
 
+## Still open
+- View: 2D side / 2.5D / 3D — he wants to play it before deciding (Rampage's later games had 3D elements).
+- Tone: classic comedic Rampage vs kaiju-vs-kaiju vs a mix across node types.
+
 ## What the scaffold already assumes (from code on `placeholder-art`)
 - **Assumption:** 2D side view, gravity, jump, wall climb, punch left/right/up (`scripts/monsters/PlayerMonster.gd`).
-- **Assumption:** local 2-player on one keyboard (`player_index` 0/1, `scripts/autoloads/InputMapper.gd`).
+- ~~local 2-player~~ refuted: solo first; scaffold had local 2-player on one keyboard (`player_index` 0/1, `scripts/autoloads/InputMapper.gd`).
 - **Assumption:** run = sequence of cities; upgrade pick between cities; run state resets (`scripts/autoloads/RunManager.gd`).
 - **Assumption:** meta progression with a currency ("kaiju_coins") and monster unlocks, saved to disk (`scripts/autoloads/MetaProgression.gd`).
 - **Assumption:** soldiers as basic enemies; helicopters implied by the upward punch.
