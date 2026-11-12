@@ -1,8 +1,8 @@
 # Chief state
-Vision: docs/chief/vision.md (draft)
-Phase: Shape — round 2 (branch placeholder-art)
-Next action: read his answers on #3, update vision.md, round 3 or confirm vision
-Waiting on him: round 2 — https://github.com/thomas-tahk/rogue-kaiju/issues/3 ; merge PR https://github.com/thomas-tahk/rogue-kaiju/pull/1
-Open questions: issue #3
+Vision: docs/chief/vision.md
+Phase: Shape — done, awaiting his confirm of vision.md
+Next action: on confirm → Research (3 assumptions) then Plan (M0 = view feel test)
+Waiting on him: confirm vision (chat) ; merge PR https://github.com/thomas-tahk/rogue-kaiju/pull/1
+Open questions: none
 Notes: placeholder-art (3 scaffold commits + chief docs) not yet on main; rename starter monster `george` (Rampage name) when building
-Updated: 2026-11-08
+Updated: 2026-11-12
